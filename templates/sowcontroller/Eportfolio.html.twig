@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+        <link rel="canonical" href="https://themes.getbootstrap.com/preview/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Preview - Bootstrap Themes" />
+        <meta property="og:url" content="https://themes.getbootstrap.com/preview/" />
+        <meta property="og:site_name" content="Bootstrap Themes" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Preview - Bootstrap Themes" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel= "stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
+            <link rel="stylesheet" href={{asset('style2.css')}}>
+           
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+          <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+         
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <style>
+            body{
+                background-image:url('');
+                background-repeat:no-repeat;
+                background-size: 100%;
+            }
+            /*définition du style pour le pied  de page*/
+            .ro{
+                text-align: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .circular{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+            .user img{
+                height: 15rem;
+                width: 15rem;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 1rem;
+                border: 1rem solid var(--yellow);
+                align-items: center;
+            }
+            :root{
+                --yellow:#f9ca24;
+            }
+            *::selection{
+                background: var(--yellow);
+                color: #333;
+            }
+           
+               
+        </style>
+        <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
+            <div class="container-fluid">
+                <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item pe-4">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </ul>
+                </div>
+            </div>
+        </nav><br><br><br>
+        <section class="cc-ma merriweather py-5">
+            <div class="container">
+                <div class="row">
+                    <h3 class="text-center text-light merriweather"><strong>E-portfolio</strong></h3>
+                        <div class="circular">
+                            <div class="user">
+                                <img src={{asset('IMAGE/port.jpg')}}>
+                            </div>
+                        </div>
+                    <div class="card bg-transparent text-center mb-4">
+
+                        <div class="card-body text-light">
+                            <h5 class="card-title">RT1 - Administrer les réseaux et l’Internet</h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src={{asset('IMAGE/administrateur.jpg')}} width="100px" height="200px" class="card-img-top" alt="..." />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Réseau</h5>
+                                <p class="card-text">
+                                    Faire de la configuration de switch attribuer des vlans,mettre en mode trunk ou access
+                                    à des ports pour qu'il puisse communiquer.<br>j'arrive à identifier le dysfonctionnement du reseau local avec plus de pratique  en R1.01b puis avec R1.03 j'ai me suis plus appliqué avec les tp en connectant les pc sur cisco pour configurer le switch et recuperer les donnés qui sont le serveur ftp en réel avec putty puis avec R1.02 je me suis plus approfondie sur le réseau avec l'analyse des trames l'encapsulation des trames avec scapy                  
+                                    Donc je vais plus m'y accrochez pour accéder à un niveau plus haut.
+                                    <a href="https://drive.google.com/file/d/1JWsH65rr-WRiFNIVEggJsBM2PZS2hfpN/view?usp=share_link">ConfigurationCISCO</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-sm-none d-md-block">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Web</h5>
+                                <p class="card-text">
+                                   faire du développement web sa me semble intéressant et j'adore<br>Créer des outils et applications informatiques pour les R&T je peux dire c'est un peu bon comme je l'ai dit en programmation pour le langage c je peux écrire un code simple<br>
+                                   <a href="https://github.com/Salamata-sow/SAE14">Mon github</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-sm-none d-md-block">
+                        <div class="card">
+                            <img src={{asset('IMAGE/proweb.jpg')}} width="100px" height="200px" class="card-img-top" alt="..." />
+                        </div>
+                    </div>
+                    <div class="col d-sm-none d-md-block">
+                        <div class="card">
+                                <img src={{asset('https://img.freepik.com/vecteurs-libre/ordinateur-portable-icone-isometrique-code-programme-developpement-logiciels-applications-programmation-neon-sombre_39422-971.jpg')}} width="100px" height="200px" class="card-img-top" alt="..." />
+                        </div>
+                    </div>
+                    <div class="col d-sm-none d-md-block">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Web</h5>
+                                <p class="card-text">
+                                        A l'aise avec le langage c j'utilise un logiciel qui s'appel replit pour y coder et garder mes codes<br>
+                                        <a href="https://replit.com/~">replit</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Réseau</h5>
+                                <p class="card-text">
+                                    je maitrise les lois fondemental sur la maniére d'utiliser les lois d'habilitation du courant et également calcul du pont diviseur calculer une tensiion . j'ai compris les cablages egalement avec les tp la physique à toujours était mon point fort depuis le collége donc je m'en sort sur les calcules et niveau je m'en suis sorti bien ce qui me sembler un peu bizzar au debut car je l'ai jamais fait mais bon je l'ai reussi
+                                    <a href="https://docs.google.com/document/d/1cnMh8zjgrynmtHqhbdOfcFR68ZTLjPcXxgBVRgiA_xE/edit?usp=sharing ">Quelques signaux</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-sm-none d-md-block">
+                        <div class="card">
+                                <img src={{asset('IMAGE/images.png')}} width="100px" height="200px" class="card-img-top" alt="..." />
+                        </div>
+                    </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+       
+        <footer>
+            copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 Oumar.sow site privé
+        </footer>
+
+   
+    <body>
+</html>
+

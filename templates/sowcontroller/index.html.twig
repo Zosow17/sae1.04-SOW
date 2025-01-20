@@ -1,18 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ma page!{% endblock %}
+{% block title %}SalamataPortfolioController!{% endblock %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-      
-
-
-<div class="example-wrapper">
-    <h1>Bienvenue {{ controller_name }}! ✅</h1>
-
+<style>
+    /*définition du style pour le pied  de page*/
+    footer{
+        background-color:#333333;
+        color: #ffffff;
+        padding:1em;
+        texte-align: center;
+    }
+   .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .smal{
+        font-size: 20px;
+        text-align: center;
+    }
    
-</div>
+</style>
+
+         <section class="banner d-flex justify-content-center align-items-center pt-5">
+             <div class="container my-5 py-5">
+                 <div class="row">
+                     <div class="col-md-6">
+                     </div>
+                     <div class="col-md-6 banner-desc lh-lg">
+                         <h1 class="text-capitalize py-3 redressed"><p class="smal" ><i>Hello, my name is oumar sow,i am a student of BUT in  network telecommunication at Roanne, unleashing my motivation, autonomy, dynamism and reliability, with a
+                             strong professional ethic and team working skills.I love taking on challenges and pushing myself to do better</i></p>                   
+                         </h1>
+                     </div><br><br><br><br><br><br>
+                 </div>
+             </div>
+         
+         <section class="portfolio" id="portfolio">
+              <div class="box-container"><br><br><br><br>
+                 <div class="box">
+                      <a href="#",img src="Images/profil.jpg" alt=""></a>
+                 </div>
+                 <section class="banner d-flex justify-content-center align-items-center pt-5">                
+                 <div class="box">
+                     <a href="/Decouvrir"><h2>A propos de moi</h2><img src={{asset('Image/about.jpg')}} alt=""></a>
+                 </div>
+                 </sectin>
+                  <div class="box">
+                      <a href="/Eportfolio"><h2> My Eportfolio </h2><img src={{asset('Image/port.jpg')}} alt=""></a>
+                 </div>                
+                 <div class="box">
+                     <a href="/monCV"><h2>Mon CV<br><img src={{asset('image/cv.jpg')}} alt=""><a>
+                 </div>
+             </div>
+         </section> 
+         </section>                     
+         <section>     
+             <footer>
+                copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@etu.univ-st-etienne.fr Propriété privéd copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@ <strong>copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@etu.univ-st-etienne site privé</strong>
+             </footer>
+         </section>
+              
 {% endblock %}
+
