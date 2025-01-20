@@ -1,0 +1,110 @@
+/* Style général */
+body.img {
+    background-image: url('https://img.freepik.com/vecteurs-libre/ordinateur-portable-icone-isometrique-code-programme-developpement-logiciels-applications-programmation-neon-sombre_39422-971.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 1em;
+    text-align: center;
+}
+
+.ro {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.contact .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.contact .row form {
+    flex: 1 1 15rem;
+    padding: 2rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.contact .row form .box {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: #3333;
+    color: #fff;
+    text-transform: none;
+    font-size: 1rem;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact .row form .box::placeholder {
+    text-transform: capitalize;
+    color: #aaa;
+}
+
+.contact .row form .message {
+    height: 10rem;
+    resize: none;
+}
+
+.contact .row .content .title {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+.contact .row .content .info h3 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #eee;
+    padding: 1rem 0;
+    font-weight: normal;
+}
+
+.contact .row .content .info h3 i {
+    padding-right: 1rem;
+    color: var(--yellow);
+}
+
+.top {
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    z-index: 50;
+    display: none;
+}
+
+.heading {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Style du bouton */
+.btn-order {
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-order:hover {
+    background-color: #ff6347;
+}

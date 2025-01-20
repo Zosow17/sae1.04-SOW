@@ -1,212 +1,69 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-    <link rel="canonical" href="https://themes.getbootstrap.com/preview/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Preview - Bootstrap Themes" />
-    <meta property="og:url" content="https://themes.getbootstrap.com/preview/" />
-    <meta property="og:site_name" content="Bootstrap Themes" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Preview - Bootstrap Themes" />
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel= "stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
-    <link rel= "stylesheet" href={{asset('style2.css')}}>
+{% extends 'base.html.twig' %}
 
-    {{ encore_entry_link_tags('app') }}
-    
-    <!-- jsPDF CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
-    {% block javascripts %}
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-</head>
+{% block title %}osow page!{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('for.css') }}">
+{% endblock %}
+{% block body %}
 <body class="img">
-    <script>
-        $(document).ready(function() {
-            /*Initialisation du diaporama*/
-            var currentImage = 0;
-            var images = $("#slideshow img");
-            var lastImage = images.length - 1;
-            images.hide();
-            images.eq(currentImage).show();
-            function nextImage() {
-                images.eq(currentImage).fadeOut();
-                if (currentImage < lastImage) {
-                    currentImage++;
-                } else {
-                    currentImage = 0;
-                }
-                images.eq(currentImage).fadeIn();
-            }
-            var intervalId = setInterval(nextImage, 3000);
-            $("#slideshow-controls .faster").click(function() {
-                clearInterval(intervalId);
-                intervalId = setInterval(nextImage, 2000);
-            });
-            $("#slideshow-controls .slower").click(function() {
-                clearInterval(intervalId);
-                intervalId = setInterval(nextImage, 4000);
-            });
-        });
-
-        function validateForm() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var phone = document.getElementById("phone").value;
-
-            if (name && email && phone) {
-                document.getElementById("cvForm").style.display = "block";
-            } else {
-                alert("Veuillez remplir tous les champs du formulaire de contact avant de télécharger le CV.");
-            }
-        }
-
-        document.getElementById("contactForm").addEventListener("submit", validateForm);
-
-        // Fonction pour télécharger le CV en PDF
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            // On récupère le contenu de la div contenant le CV
-            const content = document.getElementById("cvContent");
-
-            doc.html(content, {
-                callback: function (doc) {
-                    doc.save("cv-oumarsow.pdf");
-                },
-                margin: [10, 10, 10, 10],  // Marges du PDF
-                x: 10,
-                y: 10
-            });
-        }
-    </script>
-
-    <style>
-        .img {
-            background-image: url('https://img.freepik.com/vecteurs-libre/ordinateur-portable-icone-isometrique-code-programme-developpement-logiciels-applications-programmation-neon-sombre_39422-971.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        footer {
-            background-color: #333333;
-            color: #ffffff;
-            padding: 1em;
-            text-align: center;
-        }
-        .ro {
-            text-align: center;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        .contact .row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-        .contact .row form {
-            flex: 1 1 15rem;
-            padding: 2rem;
-            margin: 2rem;
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-        .contact .row form .box {
-            padding: 1.5rem;
-            margin: 1rem 0;
-            background: #3333;
-            color: #fff;
-            text-transform: none;
-            font-size: 1rem;
-            width: 50%;
-        }
-        .contact .row form .box::placeholder {
-            text-transform: capitalize;
-        }
-        .contact .row form .message {
-            height: 10rem;
-            resize: none;
-        }
-        .contact .row .content .title {
-            text-transform: uppercase;
-            color: #fff;
-            font-size: 3rem;
-            padding-bottom: 2rem;
-        }
-        .contact .row .content .info h3 {
-            display: flex;
-            align-items: center;
-            font-size: 2rem;
-            color: #eee;
-            padding: 1rem 0;
-            font-weight: normal;
-        }
-        .contact .row .content .info h3 i {
-            padding-right: 1rem;
-            color: var(--yellow);
-        }
-        .top {
-            position: fixed;
-            bottom: 5rem;
-            right: 2rem;
-            z-index: 50;
-            display: none;
-        }
-        .heading {
-            text-align: center;
-        }
-    </style>
-
+    <!-- Barre de navigation -->
     <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
         <div class="container-fluid">
             <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item pe-4">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </nav><br><br><br><br><br>
+    </nav>
 
+    <!-- Espace pour la barre de navigation fixe -->
+    <br><br><br><br><br>
+
+    <!-- Section du formulaire -->
     <section class="contact" id="contact">
         <h1 class="heading"><span>Formulaire</span></h1>
         <div class="row">
-            <form action="">
-
-                <input type="text" placeholder="name" id="name" class="box" required>
-                <input type="email" placeholder="email" id="email" class="box" required>
-                <input type="phone" placeholder="phone" id="phone" class="box" required>
+            <form id="contactForm">
+                <input type="text" placeholder="Nom" id="name" class="box" required>
+                <input type="email" placeholder="Email" id="email" class="box" required>
+                <input type="tel" placeholder="Téléphone" id="phone" class="box" required>
                 <p class="nav-item pe-4">
-                    <button type="button" class="btn btn-order rounded-0" onclick="downloadPDF()">Télécharger le CV en PDF</button>
+                    <a href="#" id="cvLink" style="text-decoration: none; color: #333333;">
+                        <img src="{{ asset('image/cv.jpg') }}" alt="Eportfolio" 
+                             style="width: 100px; height: 100px; border: 2px solid rgb(97, 91, 89); border-radius: 10px;">
+                        <h3>Télécharger le CV </h3>
+                    </a>
                 </p>
             </form>
         </div>
     </section>
 
-    <footer style="font-size: 15px;">
-        copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow site privé
+    <!-- Pied de page -->
+    <footer>
+        copyright &copy; 2025 oumar.sow site privé
     </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Fonction pour valider le formulaire
+        function validateForm(event) {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+
+            if (!name || !email || !phone) {
+                // Si le formulaire n'est pas valide, on empêche la navigation
+                event.preventDefault(); // Empêche le comportement par défaut du lien
+                alert("Veuillez remplir tous les champs du formulaire avant d'accéder au CV.");
+            } else {
+                // Si le formulaire est valide, on permet la navigation
+                window.location.href = "/monCV"; // Redirige vers la page du CV
+            }
+        }
+
+        // Ajout d'un écouteur d'événement sur le lien du CV
+        document.getElementById("cvLink").addEventListener("click", validateForm);
+    </script>
 </body>
-</html>
+{% endblock %}

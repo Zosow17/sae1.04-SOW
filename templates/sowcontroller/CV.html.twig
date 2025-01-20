@@ -1,329 +1,137 @@
-<DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-        <link rel="canonical" href="https://themes.getbootstrap.com/preview/" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Preview - Bootstrap Themes" />
-        <meta property="og:url" content="https://themes.getbootstrap.com/preview/" />
-        <meta property="og:site_name" content="Bootstrap Themes" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Preview - Bootstrap Themes" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            <link rel= "stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
-            <link rel="stylesheet" href={{asset('Style.CSS')}}>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+{% extends 'base.html.twig' %}
 
-        {% block javascripts %}
-           <script type='text/javascript'>
-            /* <![CDATA[ */
-            var dokan = {"ajaxurl":"https:\/\/themes.getbootstrap.com\/wp-admin\/admin-ajax.php","nonce":"751b812bc3","ajax_loader":"https:\/\/themes.getbootstrap.com\/wp-content\/plugins\/dokan-lite\/assets\/images\/ajax-loader.gif","seller":{"available":"Available","notAvailable":"Not Available"},"delete_confirm":"Are you sure?","wrong_message":"Something went wrong. Please try again.","vendor_percentage":"70","commission_type":"percentage","rounding_precision":"6","mon_decimal_point":".","product_types":["simple"],"rest":{"root":"https:\/\/themes.getbootstrap.com\/wp-json\/","nonce":"6f5d9304f1","version":"dokan\/v1"},"api":null,"libs":[],"routeComponents":{"default":null},"routes":[],"urls":{"assetsUrl":"https:\/\/themes.getbootstrap.com\/wp-content\/plugins\/dokan-lite\/assets"}};
-            /* ]]> */
-            </script>
-            <script type='text/javascript' src='https://themes.getbootstrap.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-            <script type='text/javascript' src='https://themes.getbootstrap.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67613229-3"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'UA-67613229-3');
-            </script>
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body class="img">    
-    <style>
-        .img{
-                background-color:blueviolet ;
-                background-repeat:no-repeat;
-                background-size: cover;
-        }
-        .heading{
-            text-align: center;
-            margin:0 6rem;
-            font-size: 4rem;
-            padding:1rem;
-            border-bottom: .1rem solid #fff4;
-            color:#fff;
-        }
+{% block title %}osow page!{% endblock %}
 
-        .heading span{
-            color:var(--yellow);
-        }
-        .education .box-container{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding:1rem 0;
-            padding-left: 3rem;
-        }
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('cv.css') }}">
+{% endblock %}
 
-        .education .box-container .box{
-            width:27rem;
-            margin:4rem 1rem;
-            padding-left: 4rem;
-            border-left: .2rem solid #fff;
-            position: relative;
-        }
-
-        .education .box-container .box span{
-            font-size: 1.3rem;
-            background:#222;
-            color:#fff;
-            border-radius: 5rem;
-            padding:.5rem 2.5rem;
-        }
-
-        .education .box-container .box h3{
-            font-size: 2rem;
-            color:#fff;
-            padding-top: 1.5rem;
-        }
-
-        .education .box-container .box p{
-            font-size: 1.4rem;
-            color:#eee;
-            padding: 1rem 0;
-        }
-
-        .education .box-container .box i{
-            position: absolute;
-            top:-1.5rem; left:-2.5rem;
-            height:5rem;
-            width: 5rem;
-            border-radius: 50%;
-            line-height: 5rem;
-            text-align: center;
-            font-size: 2rem;
-            color:#fff;
-            background:var(--yellow);
-        }
-        .circular{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-            }
-   
-       
-        .small{
-                font-size: 20px;
-                text-align: left;
-           
-        }
-        .contact .row .content{
-            flex:1 1 30rem;
-            padding:4rem;
-            padding-bottom: 0;
-        }
-
-        .contact .row form{
-            flex:1 1 45rem;
-            padding:2rem;
-            margin:2rem;
-            margin-bottom: 4rem;
-        }
-
-        .contact .row form .box{
-            padding:1.5rem;
-            margin:1rem 0;
-            background:#3333;
-            color:#fff;
-            text-transform: none;
-            font-size: 1.7rem;
-            width:100%;
-        }
-
-        .contact .row form .box::placeholder{
-            text-transform: capitalize;
-        }
-
-        .contact .row form .message{
-            height: 15rem;
-            resize: none;
-        }
-
-        .contact .row .content .title{
-            text-transform: uppercase;
-            color:#fff;
-            font-size: 12px;
-            padding-bottom: 12px;
-        }
-
-        .contact .row .content .info h3{
-            display: flex;
-            align-items: center;
-            font-size: 1rem;
-            color:#eee;
-            padding:1rem 0;
-            font-weight: normal;
-        }
-        .info{
-            font-size: 12px;
-        }
-
-        .contact .row .content .info h3 i{
-            padding-right: 1rem;
-            color:var(--yellow);
-        }
-        .user .post{
-            font-size: 2rem;
-            color:#eee;
-        }
-        footer{
-                background-color:#333333;
-                color: #ffffff;
-                padding:1em;
-                texte-align: center;
-            }
-            .redressed {
-                font-family: 'Redressed', cursive;
-                font-size: 1,5%;
-            }
-
-            .merriweather {
-                font-family: 'Merriweather', serif;
-            }
-
-            .cc-navbar {
-                background-color: rgba(0, 0, 0, 0.55);
-                font-family: 'Merriweather', serif;
-                z-index: 99;
-            }
-
-            .cc-navbar .nav-link {
-                border-bottom: 1px solid transparent;
-                transition: padding-bottom 0.4s ease-in-out, border-color 0.3s ease;
-            }
-
-            .cc-navbar .nav-link:hover {
-                padding-bottom: 20px;
-                border-bottom-color: var(--bs-teal);
-            }
-
-            .banner,
-            .order-form {
-                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/IMAGE/images.jpg') center center fixed no-repeat;
-                background-size: cover;
-                height: 800px;
-            }
-
-            .order-form {
-                height: 500px;
-            }
-
-            .banner .banner-desc h1 {
-                font-size: 408px;
-                font-weight: 400;
-            }
-
-            .cc-m {
-                background-size: cover;
-                height: 1300px;
-            }
-
-            .btn-order {
-                color: var(--bs-teal);
-                border-color: var(--bs-teal);
-                transition: 0.5s;
-            }
-
-            .btn-order:hover,
-            .btn-order:focus,
-            .btn-order:active {
-                background-color: var(--bs-teal);
-                color:rgb(52, 54, 136);
-            }
-            .ro{
-                text-align: center;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            }
-           
-       
-           
-            .user img{
-                height: 30rem;
-                width: 30rem;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 1rem;
-                border: 1rem solid var(--yellow);
-                align-items: center;
-            }
-            :root{
-                --yellow:#f9ca24;
-            }
-            *::selection{
-                background: var(--yellow);
-                color: #333;
-            }
-
-            .i{
-                font-size: 15px;
-                float: right;
-            }
-
-
-
-    </style>
-   
-    <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
-            <div class="container-fluid">
-                <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder" style="font-size: 15px;">Oumar Sow</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-               
+{% block body %}
+<body>
+    <!-- Conteneur du CV -->
+    <div class="cv-container">
+        <!-- Colonne de gauche -->
+        <div class="left-column">
+            <!-- Photo de profil -->
+            <div class="profile-picture">
+                <img src="image/profil.jpg" alt="Photo de profil">
             </div>
-    </nav><br><br><br><br><br><br><br>
-    <section class="education" id="education">
-        <div class="">
-            <div class="user"><br>
-             <center>
-            <img src={{asset('IMAGE/cv.jpg')}}>   
-            
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item pe-4">
-                            <h2>Pour voir et telecharger mon CV il faut remplire ce formulaire :</h2>
-                            <a class="btn btn-order rounded-0" href="/Formulaire" style="font-size: 15px;">Formulaire</a>
-                        </li>
-                    </ul>
-                    </center>                
-           
+
+            <!-- Section Contact -->
+            <section class="section">
+                <h2>Contact</h2>
+                <ul>
+                    <li><strong>Adresse:</strong> 4 Impasse Champromis, 42300 France, France</li>
+                    <li><strong>Email:</strong> <a href="mailto:aasow35@gmail.com">aasowxx@gmail.com</a></li>
+                    <li><strong>Téléphone:</strong> <a href="tel:0753676755">07536767xx</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oumar-xxx" target="_blank">linkedin.com/in/oumar-sow</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/oumar-sow" target="_blank">github.com/oumar-xxx</a></li>
+                </ul>
+            </section>
+
+            <!-- Section Langues -->
+            <section class="section">
+                <h2>Langues</h2>
+                <ul>
+                    <li>Français: Courant</li>
+                    <li>Anglais: Intermédiaire</li>
+                    <li>wolof : courant</li>
+                    <li>peulh: Langue maternelle</li>
+                </ul>
+            </section>
+
+            <!-- Section Centres d'intérêt -->
+            <section class="section">
+                <h2>Centres d'intérêt</h2>
+                <ul>
+                    <li>Technologies émergentes</li>
+                    <li>Voyages et découvertes culturelles</li>
+                    <li>Sport(Football, Basketball),manga,jeu video (fifa,pes)</li>
+                </ul>
+            </section>
         </div>
 
-        <div class="box-container">
-    </section>
-    
-    
+        <!-- Colonne de droite -->
+        <div class="right-column">
+            <!-- Nom et titre -->
+            <header>
+                <h1>Oumar Sow</h1>
+                <p>Étudiant en Réseaux et Télécommunications</p>
+            </header>
 
-    <footer style="font-size: 125px;">
-   
-        copyright </<span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@etu.univ-st-etienne.fr site prive
-        
-    </footer>
-    
+            <!-- Section Expérience Professionnelle -->
+            <section class="section">
+                <h2>Expérience Professionnelle</h2>
+                <div class="article">
+                    <h3>Stage en Administration Réseaux</h3>
+                    <p><strong>Entreprise:</strong> Société XYZ</p>
+                    <p><strong>Durée:</strong> Juin 2023 - Août 2023</p>
+                    <p><strong>Description:</strong> Gestion des serveurs, maintenance du réseau, support technique.</p>
+                </div>
+                <div class="article">
+                    <h3>Projet Universitaire</h3>
+                    <p><strong>Université:</strong> IUT de Roanne</p>
+                    <p><strong>Durée:</strong> Septembre 2022 - Mai 2023</p>
+                    <p><strong>Description:</strong> Conception et mise en place d'un réseau local sécurisé.</p>
+                </div>
+            </section>
 
-                    
-    </body>
-</html>
+            <!-- Section Formation -->
+            <section class="section">
+                <h2>Formation</h2>
+                <div class="article">
+                    <h3>BUT Réseaux et Télécommunications (en cour)</h3>
+                    <p><strong>Établissement:</strong> IUT de Roanne</p>
+                    <p><strong>Durée:</strong> 2024 - 2027</p>
+                </div>
+                <div class="article">
+                    <h3>Baccalauréat Scientifique</h3>
+                    <p><strong>Établissement:</strong> Lycée Méry, Sénégal</p>
+                    <p><strong>Durée:</strong> 2023 - 2024</p>
+                </div>
+            </section>
+             <section class="section">
+                <h2>Compétences</h2>
+                
+                    Administration des réseaux (TCP/IP, DNS, DHCP)<br>
+                    Configuration de commutateurs<br>
+                    Langages de programmation: Python, C, HTML et CSS<br>
+                    Systèmes d'exploitation: Linux, Windows<br>
+                
+            </section>
+        </div>
+    </div>
 
+    <!-- Bouton de téléchargement du CV en PDF -->
+    <div style="text-align: center; margin: 20px;">
+        <button onclick="downloadPDF()" class="btn btn-primary">Télécharger le CV en PDF</button>
+    </div>
+
+    <!-- Script JavaScript pour générer le PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // Fonction pour télécharger le CV en PDF
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4'); // Crée un document PDF en format A4
+
+            // On récupère le contenu de la div contenant le CV
+            const content = document.querySelector(".cv-container");
+
+            // Convertir le contenu HTML en image avec html2canvas
+            html2canvas(content, { scale: 2 }).then((canvas) => {
+                const imgData = canvas.toDataURL('image/png'); // Convertir l'image en base64
+                const imgWidth = 210; // Largeur de la page A4 en mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width; // Calculer la hauteur proportionnelle
+
+                // Ajouter l'image au PDF
+                doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+
+                // Télécharger le PDF
+                doc.save("cv-oumarsow.pdf");
+            });
+        }
+    </script>
+</body>
+{% endblock %}

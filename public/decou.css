@@ -1,0 +1,99 @@
+/* Style de la galerie d'images */
+.img-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espace entre les images */
+    justify-content: center;
+}
+
+/* Conteneur de chaque image */
+.image-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Largeur fixe pour chaque conteneur */
+}
+
+/* Style spécifique pour le conteneur de l'image "Loisir" */
+.loisir-container {
+    width: 100%; /* Prend toute la largeur disponible */
+    max-width: 400px; /* Largeur maximale pour l'image "Loisir" */
+    margin-bottom: 20px; /* Espace supplémentaire en bas */
+}
+
+/* Style spécifique pour l'image "Loisir" */
+.loisir-image {
+    height: 250px; /* Hauteur plus grande pour l'image "Loisir" */
+    object-fit: cover; /* Cadre l'image pour qu'elle remplisse le conteneur */
+}
+
+/* Texte descriptif au-dessus de l'image */
+.image-description {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Style des images */
+.gallery-image {
+    width: 100%; /* L'image remplit le conteneur */
+    height: 150px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover; /* Cadre l'image pour qu'elle remplisse le conteneur */
+    border-radius: 10px;
+    cursor: pointer; /* Curseur en forme de main pour indiquer que l'image est cliquable */
+}
+
+/* Style de la description textuelle */
+.banner-desc {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style de la modal */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Rester en place */
+    z-index: 1000; /* Au-dessus de tout */
+    padding-top: 60px; /* Espace en haut */
+    left: 0;
+    top: 0;
+    width: 100%; /* Pleine largeur */
+    height: 100%; /* Pleine hauteur */
+    overflow: auto; /* Activer le défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir avec opacité */
+}
+
+/* Contenu de la modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* Bouton pour fermer la modal */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}

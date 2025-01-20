@@ -17,17 +17,6 @@ final class SowcontrollerController extends AbstractController{
     }
 
 
-    #[Route('blog/home', name: 'app_home')]
-    Public function home() : response
-    {
-        return $this->render('sowcontroller/home.html.twig', [
-           
-        ]);
-    }
-
-
-
-
     #[Route('/monCV')]
     Public function CV() : response
     {

@@ -1,63 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-        <link rel="canonical" href="https://themes.getbootstrap.com/preview/" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Preview - Bootstrap Themes" />
-        <meta property="og:url" content="https://themes.getbootstrap.com/preview/" />
-        <meta property="og:site_name" content="Bootstrap Themes" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Preview - Bootstrap Themes" />
-        <title>Welcome!</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
-        <link rel="stylesheet" href="style2.css">
-        <style>
-            .img {
-                background-image: url('../IMAGE/IMGTRAVAIL.jpg');
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
+{% extends 'base.html.twig' %}
 
-            /* Style pour afficher les images en grille (2 par ligne) */
-            .img-gallery {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
-                gap: 20px; /* Espacement entre les images */
-                justify-content: center; /* Centrer les images horizontalement */
-            }
+{% block title %}osow page!{% endblock %}
 
-            .img-gallery img {
-                width: 100%; /* Les images prennent toute la largeur de leur cellule */
-                height: auto; /* Conserve le ratio d'aspect */
-                border-radius: 10px; /* Optionnel : ajoute des coins arrondis */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : ajoute une ombre */
-            }
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('decou.css') }}"> <!-- Lien vers le fichier CSS pour la galerie -->
+{% endblock %}
 
-            /* Style pour le texte à droite */
-            .banner-desc {
-                padding-left: 20px; /* Espacement entre les images et le texte */
-                max-width: 100%; /* Assure que le texte ne dépasse pas */
-            }
-
-            /* Ajustement de la disposition globale */
-            .banner {
-                display: flex;
-                flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-                gap: 20px; /* Espacement entre les images et le texte */
-            }
-
-            .banner > .col-md-6 {
-                flex: 1 1 45%; /* Les colonnes prennent 45% de l'espace */
-                max-width: 45%; /* Limite la largeur des colonnes */
-            }
-        </style>
-    </head>
+{% block body %}
     <body class="img">
+        <!-- Barre de navigation -->
         <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
             <div class="container-fluid">
                 <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
@@ -72,32 +23,14 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item pe-4">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
+
+        <!-- Section principale -->
         <section class="banner d-flex justify-content-center align-items-center pt-5">
             <div class="container my-5 py-5">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="img-gallery">
-                            <img src="IMAGE/loi.jpg" alt="Loi">
-                            <img src="IMAGE/liv.jpg" alt="Livre">
-                            <img src="IMAGE/musi.jpg" alt="Musique">
-                            <img src="IMAGE/bask.jpg" alt="Basket">
-                            <img src="IMAGE/manga.jpg" alt="Manga">
-                            <img src="IMAGE/foot.jpg" alt="Football">
-                            <img src="IMAGE/prom.jpg" alt="Promenade">
-                            <img src="IMAGE/bas1.jpg" alt="Basket 1">
-                            <img src="IMAGE/bas3.jpg" alt="Basket 3">
-                            <img src="IMAGE/mus.jpg" alt="Musique 2">
-                        </div>
-                    </div>
+                    <!-- Description textuelle -->
                     <div class="col-md-6 banner-desc lh-lg">
                         <p class="text-capitalize py-3 redressed">
                             <i>
@@ -105,11 +38,78 @@
                             </i>
                         </p>
                     </div>
+
+                    <!-- Galerie d'images -->
+                    <div class="col-md-6">
+                        <div class="img-gallery">
+                            <div class="image-container loisir-container">
+                                <p class="image-description">Loisir</p>
+                                <img src="{{ asset('IMAGE/loi.jpg') }}" alt="Loi" class="gallery-image loisir-image" onclick="openModal('{{ asset('IMAGE/loi.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Livre</p>
+                                <img src="{{ asset('IMAGE/liv.jpg') }}" alt="Livre" class="gallery-image" onclick="openModal('{{ asset('IMAGE/liv.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Musique</p>
+                                <img src="{{ asset('IMAGE/musi.jpg') }}" alt="Musique" class="gallery-image" onclick="openModal('{{ asset('IMAGE/musi.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Basket</p>
+                                <img src="{{ asset('IMAGE/bask.jpg') }}" alt="Basket" class="gallery-image" onclick="openModal('{{ asset('IMAGE/bask.jpg') }}')">
+                            </div>
+                             <div class="image-container">
+                                <p class="image-description">Basket </p>
+                                <img src="{{ asset('IMAGE/bas3.jpg') }}" alt="Basket 1" class="gallery-image" onclick="openModal('{{ asset('IMAGE/bas3.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Manga</p>
+                                <img src="{{ asset('IMAGE/manga.jpg') }}" alt="Manga" class="gallery-image" onclick="openModal('{{ asset('IMAGE/manga.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Football</p>
+                                <img src="{{ asset('IMAGE/foot.jpg') }}" alt="Football" class="gallery-image" onclick="openModal('{{ asset('IMAGE/foot.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Promenade</p>
+                                <img src="{{ asset('IMAGE/prom.jpg') }}" alt="Promenade" class="gallery-image" onclick="openModal('{{ asset('IMAGE/prom.jpg') }}')">
+                            </div>
+                            <div class="image-container">
+                                <p class="image-description">Musculation</p>
+                                <img src="{{ asset('IMAGE/mus.jpg') }}" alt="Musique 2" class="gallery-image" onclick="openModal('{{ asset('IMAGE/mus.jpg') }}')">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Modal pour afficher l'image agrandie -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <!-- Pied de page -->
         <footer>
             Copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@etu.univ-st-etienne.fr
         </footer>
+
+        <!-- Script JavaScript -->
+        <script>
+            // Fonction pour ouvrir la modal avec l'image cliquée
+            function openModal(imageSrc) {
+                const modal = document.getElementById("myModal");
+                const modalImg = document.getElementById("img01");
+                modal.style.display = "block";
+                modalImg.src = imageSrc;
+            }
+
+            // Fonction pour fermer la modal
+            function closeModal() {
+                const modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        </script>
     </body>
-</html>
+{% endblock %}
