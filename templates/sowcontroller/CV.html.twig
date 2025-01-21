@@ -8,16 +8,16 @@
 
 {% block body %}
 <body>
-    <!-- Conteneur du CV -->
+
     <div class="cv-container">
-        <!-- Colonne de gauche -->
+        
         <div class="left-column">
-            <!-- Photo de profil -->
+            
             <div class="profile-picture">
                 <img src="image/profil.jpg" alt="Photo de profil">
             </div>
 
-            <!-- Section Contact -->
+            
             <section class="section">
                 <h2>Contact</h2>
                 <ul>
@@ -29,7 +29,7 @@
                 </ul>
             </section>
 
-            <!-- Section Langues -->
+            
             <section class="section">
                 <h2>Langues</h2>
                 <ul>
@@ -40,7 +40,7 @@
                 </ul>
             </section>
 
-            <!-- Section Centres d'intérêt -->
+            
             <section class="section">
                 <h2>Centres d'intérêt</h2>
                 <ul>
@@ -51,9 +51,9 @@
             </section>
         </div>
 
-        <!-- Colonne de droite -->
+        
         <div class="right-column">
-            <!-- Nom et titre -->
+            
             <header>
                 <h1>Oumar Sow</h1>
                 <p>Étudiant en Réseaux et Télécommunications</p>
@@ -81,7 +81,7 @@
                 </div>
              </section>
 
-            <!-- Section Formation -->
+    
             <section class="section">
                 <h2>Formation</h2>
                 <div class="article">
@@ -110,33 +110,33 @@
         </div>
     </div>
 
-    <!-- Bouton de téléchargement du CV en PDF -->
+    
     <div style="text-align: center; margin: 20px;">
         <button onclick="downloadPDF()" class="btn btn-primary">Télécharger le CV en PDF</button>
     </div>
 
-    <!-- Script JavaScript pour générer le PDF -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
-        // Fonction pour télécharger le CV en PDF
+        
         function downloadPDF() {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('p', 'mm', 'a4'); // Crée un document PDF en format A4
+            const doc = new jsPDF('p', 'mm', 'a4'); 
 
-            // On récupère le contenu de la div contenant le CV
+            
             const content = document.querySelector(".cv-container");
 
-            // Convertir le contenu HTML en image avec html2canvas
+            
             html2canvas(content, { scale: 2 }).then((canvas) => {
-                const imgData = canvas.toDataURL('image/png'); // Convertir l'image en base64
-                const imgWidth = 210; // Largeur de la page A4 en mm
-                const imgHeight = (canvas.height * imgWidth) / canvas.width; // Calculer la hauteur proportionnelle
+                const imgData = canvas.toDataURL('image/png'); 
+                const imgWidth = 210; 
+                const imgHeight = (canvas.height * imgWidth) / canvas.width; 
 
-                // Ajouter l'image au PDF
+                
                 doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
 
-                // Télécharger le PDF
+            
                 doc.save("cv-oumarsow.pdf");
             });
         }

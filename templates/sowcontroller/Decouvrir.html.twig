@@ -8,7 +8,7 @@
 
 {% block body %}
     <body class="img">
-        <!-- Navigation bar -->
+    
         <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
             <div class="container-fluid">
                 <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
@@ -26,11 +26,11 @@
             </div>
         </nav>
 
-        <!-- Main section -->
+        
         <section class="banner d-flex justify-content-center align-items-center pt-5">
             <div class="container my-5 py-5">
                 <div class="row">
-                    <!-- Text description -->
+                
                     <div class="col-md-6 banner-desc lh-lg">
                         <p class="text-capitalize py-3 redressed">
                             <i>
@@ -50,7 +50,7 @@
                         </p>
                     </div>
 
-                    <!-- Image gallery -->
+                    
                     <div class="col-md-6">
                         <div class="img-gallery">
                             <div class="image-container loisir-container">
@@ -99,20 +99,20 @@
             </div>
         </section>
 
-        <!-- Modal to display the enlarged image -->
+        
         <div id="myModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="img01">
         </div>
 
-        <!-- Footer -->
+    
         <footer>
             Copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@etu.univ-st-etienne.fr
         </footer>
 
-        <!-- JavaScript script -->
+
         <script>
-            // Function to open the modal with the clicked image
+        
             function openModal(imageSrc) {
                 const modal = document.getElementById("myModal");
                 const modalImg = document.getElementById("img01");
@@ -120,7 +120,7 @@
                 modalImg.src = imageSrc;
             }
 
-            // Function to close the modal
+        
             function closeModal() {
                 const modal = document.getElementById("myModal");
                 modal.style.display = "none";

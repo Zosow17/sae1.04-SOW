@@ -1,23 +1,23 @@
-/* Style général */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    min-height: 100vh; /* Prend toute la hauteur de la page */
-    background-color: #f4f4f4; /* Couleur de fond de la page */
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background-color: #f4f4f4; 
 }
 
-/* Conteneur du CV */
+
 .cv-container {
     display: flex;
-    background-color: #fff; /* Fond blanc pour le CV */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    max-width: 800px; /* Largeur maximale du CV */
-    width: 100%; /* Prend toute la largeur disponible */
-    margin: 20px; /* Marge autour du CV */
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    max-width: 800px; 
+    width: 100%; 
+    margin: 20px; 
 }
 
 /* Colonne de gauche */

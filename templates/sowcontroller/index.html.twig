@@ -3,37 +3,37 @@
 {% block title %}osow page!{% endblock %}
 
 {% block body %}
-    <!-- Conteneur principal pour la mise en page flexible -->
+
     <div style="display: flex; flex-direction: column; min-height: 100vh;">
-        <!-- Section de profil en haut avec des lignes verticales -->
+   
         <div style="text-align: center; margin: 20px; position: relative;">
-            <!-- Ligne verticale à gauche -->
+            
             <div style="position: absolute; top: 0; bottom: 0; left: 20%; width: 2px; background-color: rgb(107, 101, 107);"></div>
 
-            <!-- Contenu du profil -->
+            
             <div>
-                <!-- Photo de profil encadrée en rond -->
+                
                 <img src="{{ asset('image/profil.jpg') }}" alt="Photo de profil" 
                      style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid rgb(51, 45, 43);">
-                <!-- Phrase de présentation -->
+                
                 <h2 style="margin-top: 20px;">Oumar Sow</h2>
                 <p style="font-size: 16px; color: #555555;">
                     I am a student in Networks and Telecommunications at Roanne. Passionate about technical challenges and teamwork.
                 </p>
             </div>
 
-            <!-- Ligne verticale à droite -->
+            
             <div style="position: absolute; top: 0; bottom: 0; right: 20%; width: 2px; background-color: rgb(139, 133, 131);"></div>
         </div>
 
-        <!-- Section des boîtes en bas avec des lignes verticales -->
+
         <div style="text-align: center; margin-top: 100px; position: relative; flex: 1;">
-            <!-- Ligne verticale à gauche -->
+
             <div style="position: absolute; top: 0; bottom: 0; left: 20%; width: 2px; background-color: rgb(126, 122, 120);"></div>
 
-            <!-- Boîtes centrées -->
+            
             <div style="display: flex; justify-content: center; gap: 40px;">
-                <!-- Boîte pour "Découvrir" -->
+
                 <div style="text-align: center;">
                     <a href="/Decouvrir" style="text-decoration: none; color: #333333;">
                         <img src="{{ asset('image/about.jpg') }}" alt="Découvrir" 
@@ -42,7 +42,7 @@
                     </a>
                 </div>
 
-                <!-- Boîte pour "Eportfolio" -->
+        
                 <div style="text-align: center;">
                     <a href="/Eportfolio" style="text-decoration: none; color: #333333;">
                         <img src="{{ asset('image/port.jpg') }}" alt="Eportfolio" 
@@ -51,7 +51,7 @@
                     </a>
                 </div>
 
-                <!-- Boîte pour "CV" -->
+            
                 <div style="text-align: center;">
                     <a href="/Formulaire" style="text-decoration: none; color: #333333;">
                         <img src="{{ asset('IMAGE/CV.jpg') }}" alt="CV" 
@@ -61,11 +61,10 @@
                 </div>
             </div>
 
-            <!-- Ligne verticale à droite -->
+        
             <div style="position: absolute; top: 0; bottom: 0; right: 20%; width: 2px; background-color: rgb(113, 108, 106);"></div>
         </div>
-
-        <!-- Footer tout en bas -->
+        </div>
         <footer style="text-align: center; padding: 10px; background-color: #333333; color: #ffffff; margin-top: auto;">
             &copy; 2025 Oumar.sow - Site privé
         </footer>
