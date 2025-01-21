@@ -1,0 +1,79 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    min-height: 100vh; /* Prend toute la hauteur de la page */
+    background-color: #f4f4f4; /* Couleur de fond de la page */
+}
+
+/* Conteneur du CV */
+.cv-container {
+    display: flex;
+    background-color: #fff; /* Fond blanc pour le CV */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    max-width: 800px; /* Largeur maximale du CV */
+    width: 100%; /* Prend toute la largeur disponible */
+    margin: 20px; /* Marge autour du CV */
+}
+
+/* Colonne de gauche */
+.left-column {
+    background-color: #2c3e50; /* Couleur de fond pour la colonne de gauche */
+    color: #fff; /* Texte en blanc */
+    padding: 20px; /* Espace intérieur */
+    width: 30%; /* Largeur de la colonne de gauche */
+}
+
+/* Colonne de droite */
+.right-column {
+    padding: 20px; /* Espace intérieur */
+    width: 70%; /* Largeur de la colonne de droite */
+    color: #333; /* Couleur de texte sombre */
+    background-color: #fff; /* Fond blanc */
+}
+
+/* Photo de profil */
+.profile-picture img {
+    width: 100%; /* Prend toute la largeur disponible */
+    border-radius: 50%; /* Rend l'image ronde */
+}
+
+/* Sections */
+.section {
+    margin-bottom: 20px; /* Espace entre les sections */
+}
+
+.section h2 {
+    font-size: 1.5em; /* Taille du titre */
+    margin-bottom: 10px; /* Espace sous le titre */
+    border-bottom: 2px solid #3498db; /* Ligne sous le titre */
+    padding-bottom: 5px; /* Espace sous la ligne */
+}
+
+.section ul {
+    list-style-type: none; /* Supprime les puces */
+    padding: 0; /* Supprime le padding par défaut */
+}
+
+.section ul li {
+    margin-bottom: 10px; /* Espace entre les éléments de la liste */
+}
+
+/* Bouton de téléchargement */
+.btn {
+    background-color: #3498db; /* Couleur de fond du bouton */
+    color: #fff; /* Texte en blanc */
+    padding: 10px 20px; /* Espace intérieur */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    font-size: 1em; /* Taille du texte */
+}
+
+.btn:hover {
+    background-color: #2980b9; /* Couleur au survol */
+}
