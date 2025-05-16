@@ -3,27 +3,111 @@
 {% block title %}osow page!{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('for.css') }}">
+    <link rel="stylesheet" href="{{ asset('formul.css') }}">
+    <style>
+        /* Ajout d'un style global */
+        body.img {
+            background-image: url('{{ asset('path_to_your_background_image.jpg') }}'); /* Ajoute ton image de fond */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Barre de navigation */
+        .cc-navbar {
+            background-color: #333;
+            z-index: 10;
+        }
+
+        /* Section du formulaire */
+        .contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .heading span {
+            color: #ff6f61; /* Couleur du texte */
+        }
+
+        /* Formulaire centré */
+        .contact form {
+            background-color: rgba(255, 255, 255, 0.8); /* Fond blanc transparent */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .contact input.box {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .contact input.box:focus {
+            outline: none;
+            border-color: #ff6f61;
+            box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+        }
+
+        .contact a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-top: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .contact a img {
+            border-radius: 10px;
+            border: 2px solid rgb(97, 91, 89);
+        }
+
+        .contact a:hover {
+            color: #ff6f61;
+        }
+
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            color: #fff;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+    </style>
 {% endblock %}
+
 {% block body %}
 <body class="img">
     <!-- Barre de navigation -->
-    <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
-        <div class="container-fluid">
-            <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
+    
 
     <!-- Espace pour la barre de navigation fixe -->
     <br><br><br><br><br>
 
     <!-- Section du formulaire -->
     <section class="contact" id="contact">
-        <h1 class="heading"><span>Formulaire</span></h1>
-        <div class="row">
+        <div>
+            <h1 class="heading"><span>Formulaire</span></h1>
             <form id="contactForm">
                 <input type="text" placeholder="Nom" id="name" class="box" required>
                 <input type="email" placeholder="Email" id="email" class="box" required>
@@ -32,7 +116,7 @@
                     <a href="#" id="cvLink" style="text-decoration: none; color: #333333;">
                         <img src="{{ asset('image/cv.jpg') }}" alt="Eportfolio" 
                              style="width: 100px; height: 100px; border: 2px solid rgb(97, 91, 89); border-radius: 10px;">
-                        <h3>Télécharger le CV </h3>
+                        <h3>Pour Télécharger le CV cliquez sur la photo</h3>
                     </a>
                 </p>
             </form>
@@ -65,6 +149,5 @@
         // Ajout d'un écouteur d'événement sur le lien du CV
         document.getElementById("cvLink").addEventListener("click", validateForm);
     </script>
-     
 </body>
 {% endblock %}

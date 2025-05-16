@@ -1,28 +1,103 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}osow page!{% endblock %}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('port.css') }}"> <!-- Lien vers le fichier CSS externe -->
-{% endblock %}
+{% block title %}Mon choix de parcours{% endblock %}
 
 {% block body %}
-<body>
-    <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
-        <div class="container-fluid">
-            <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav><br><br><br>
+
+<style>
+    .documents-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .petite-fenetre {
+        width: 500px;
+        height: 350px;
+        border: 1px solid #ccc;
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .petite-fenetre iframe {
+        width: 100%;
+        height: 80%;
+    }
+
+    .apercu-agrandi {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80vw;
+        height: 80vh;
+        background: white;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 20px;
+        box-shadow: 0px 0px 15px rgba(178, 169, 169, 0.89);
+        border-radius: 10px;
+        border: 2px solid #000;
+    }
+
+    .apercu-agrandi iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    .fermer {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        background: red;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    thead {
+        background-color: #e95420;
+        color: white;
+    }
+
+    th, td {
+        padding: 16px;
+        border: 1px solid #ddd;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        font-size: 16px;
+    }
+
+    td {
+        font-size: 15px;
+    }
+</style>
     <section class="cc-ma merriweather py-5">
         <div class="container">
             <div class="row">  
@@ -36,203 +111,562 @@
             </div>
         </div>
     </section>
+    <br>
+    <div align="center">
+ <div class="text-center mb-4">
+  <button class="btn-custom" onclick="window.location.href='#rt1-section'">
+ <h4 class="card-title">RT1 - Administrer les réseaux et l’Internet</h4>
+</button>
+</div>
+<p>AC11.01 Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications<br>
+<p><strong>R1.04 et R2.05</strong></p>
+        <progress id="myProgress" value="75" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
+   <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Preuves</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Analyse Reflexive</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+</div> </br>
+<p>AC11.02 Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</br>
+     <p><strong>R1.06 et R2.04</strong></p>
+        <progress id="myProgress" value="75" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
+   <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
+    <div class="documents-container" style="flex-grow: 1;">
+        <div class="petite-fenetre">
+            <iframe 
+                src="https://docs.google.com/document/d/136WQlMhJlqSdxAOpJhojxGQxX6g8sXxFWvylm9EpuZ4/preview" 
+                width="100%" 
+                height="600px" 
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+            <br>
+            <button class="bouton-apercu" onclick="window.open('https://docs.google.com/document/d/136WQlMhJlqSdxAOpJhojxGQxX6g8sXxFWvylm9EpuZ4/preview', '_blank')">
+                <p>Preuves</p>
+            </button>
+        </div>
+    </div>
+    <div class="documents-container" style="flex-grow: 1;">
+        <div class="petite-fenetre">
+            <iframe 
+                src="https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview" 
+                width="100%" 
+                height="600px" 
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+            <br>
+            <button class="bouton-apercu" onclick="window.open('https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview', '_blank')">
+                Analyse Reflexive
+            </button>
+        </div>
+    </div>
+</div>
+ </br>
+
+     <p>AC11.06 Installer un poste client, expliquer la procédure mise en place </br>
+     <p><strong>R1.08,R2.01b,R2.01a,R2.02 et R1.01b</strong></p>
+        <progress id="myProgress" value="75" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
+
+        <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Preuves</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Analyse Reflexive</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+</div> </br>
 
 
 
 
+<div align="center">
+ <div class="text-center mb-4">
+  <button class="btn-custom" onclick="window.location.href='#rt1-section'">
+ <h4 class="card-title">RT2 - Connecter les entreprises et les usagers</h4>
+</button>
+</div>
 
-    <section class="cc-ma merriweather py-5">      
-            <div class="text-center mb-4">
-                <button class="btn-custom" onclick="window.location.href='#rt1-section'">
-                    <h5 class="card-title">RT1 - Administrer les réseaux et l’Internet</h5>
-                </button>
-            </div>           
-        <section id="rt1-section">            
-            <div class="col d-sm-none d-md-block">
-                <div class="card">
-                    <div class="card-body"> 
-                        <p>AC11.01 Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications<br>
-                        Mon niveau<br>
-                        <progress value="100" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-                        <p>Sur cette compétence, l’acquisition porte principalement sur la compréhension et l'application des lois fondamentales de l’électricité qui sont essentielles pour travailler sur des équipements de réseaux et de télécommunications. </p><p>
-                        Compréhension des lois électriques fondamentales : On apprend les bases de l’électricité, telles que la loi d'Ohm (relation entre la tension, le courant et la résistance), les lois de Kirchhoff (pour les circuits électriques) et d’autres principes essentiels qui régissent le comportement des courants et tensions dans un circuit électrique.<br>
-                        <img src="image/cab4.jpg"  alt=""  class="mx-auto d-block" width="200" height="200">
-                        Analyse des circuits électriques : On acquiert la capacité de réaliser des analyses simples et complexes des circuits électriques utilisés dans les équipements de réseaux et de télécommunications. Cela comprend la compréhension des circuits en série et en parallèle, des résistances, des condensateurs, des inductances, etc.<br>
-                        <img src="image/cab5.jpg"  alt=""  class="mx-auto d-block" width="200" height="200">
-                        Intervention sur les équipements électriques : Grâce à la maîtrise des lois électriques, on est capable d'intervenir sur les équipements de réseaux comme les switches et autres appareils nécessitant une alimentation électrique et un câblage réseau.<br>
-                        Sécurité électrique : On apprend également à appliquer les règles de sécurité en matière d'électricité pour intervenir sur des équipements de manière sécurisée, en évitant les risques d’électrocution ou de court-circuit.<br>
-                        <img src="image/cab1.jpg"  alt=""  class="mx-auto d-block" width="200" height="200">
-                        
-                    
+     <p>AC12.01 Mesurer et analyser les signaux </br>
+     <p><strong>R1.04</strong></p>
+        <progress id="myProgress" value="75" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
+
+        <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
 
 
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Preuves</p>
+        </button>
+    </div>
+</div>
 
-                        <p>AC11.02 Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</br>
-                        Mon niveau<br>
-                        <progress value="75" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-                        Architecture des systèmes numériques : On apprend le fonctionnement des systèmes informatiques, avec une compréhension des composants clés comme les processeurs, la mémoire, et les interconnexions dans un système numérique.<br>
-                        Principes du codage de l'information : On acquiert les bases du codage de l’information, y compris les techniques de codage binaire, la compression des données et les mécanismes de correction d’erreurs.<br>
-                        Fonctionnement de l’Internet et des communications numériques : On comprend le rôle des protocoles Internet (comme TCP/IP) et comment les données sont transmises, acheminées et sécurisées dans les réseaux mondiaux.<br>
-                        <img src="image/c.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        <img src="image/py.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        
-                        
-                        
-                        
-                        <p>AC11.03 Configurer les fonctions de base du réseau local</p>
-                        Mon niveau<br>
-                        <progress value="25" max="100" style="width: 75%; height: 30px;"></progress><br></p>
-                        Configuration des équipements réseau : On apprend à configurer les équipements essentiels d'un réseau local, les commutateurs (switches), points d'accès sans fil, et les serveurs DHCP, pour assurer une communication fluide au sein du réseau.<br>
-                        Gestion des adresses IP : On acquiert les compétences nécessaires pour attribuer et gérer les adresses IP dans un réseau local, y compris la configuration d'adresses statiques ou dynamiques via le protocole DHCP (Dynamic Host Configuration Protocol).<br>
-                        <img src="image/ping.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        Sécurisation du réseau local : On comprend comment mettre en place des mesures de sécurité de base pour protéger un réseau local, telles que le filtrage des adresses MAC, et la gestion des accès réseau pour éviter les intrusions.<br>
-                        <img src="image/sark.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        
-                        
-                        
-                        
-                        <p>AC11.04 Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</br>
-                        Mon niveau<br>
-                        <progress value="100" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-                        Compréhension des rôles des systèmes d’exploitation : On apprend à connaître les fonctions essentielles d'un système d’exploitation, comme la gestion des ressources matérielles (processeur, mémoire, périphériques) et la gestion des utilisateurs et des droits d'accès dans un environnement réseau.<br>
-                        Configuration et administration des réseaux : On acquiert les compétences nécessaires pour configurer les paramètres réseau d'un système d’exploitation (adresse IP, passerelles, DNS) et pour gérer les services réseau de base, tels que le partage de fichiers, l’accès à distance, et la gestion des utilisateurs sur le réseau.<br>      
-                        <img src="image/ping2.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-
-                        
-                        
-                        
-                        <p>AC11.05 Savoir identifier les dysfonctionnements du réseau local</br>
-                        Mon niveau<br>
-                        <progress value="85" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-                        Diagnostic des problèmes de connexion réseau : On apprend à identifier les problèmes de connexion au réseau local, comme les pannes de communication entre les périphériques, les problèmes de câblage ou d’adressage IP, et à utiliser des outils de diagnostic tels que le ping ou tracert pour localiser les erreurs.<br>
-                        Analyse des performances du réseau : On acquiert la capacité de détecter des problèmes liés aux performances du réseau local, tels que des débits insuffisants, des congestions ou des latences élevées, en utilisant des outils comme Wireshark.<br>
-                        <img src="image/sark.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        Identification des problèmes matériels et logiciels : On apprend à repérer les dysfonctionnements causés par des équipements défectueux (, switches, câbles défectueux) ou des configurations incorrectes (paramétrage erroné des VLAN, du DHCP), et à proposer des solutions de correction adaptées.<br>
-                        <img src="image/ping.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-
-                        
-                        
-                        
-                        <p>AC11.06 Installer un poste client, expliquer la procédure mise en place </br>
-                        Mon niveau<br>
-                        <progress value="80" max="100" style="width: 50%; height: 30px;"></progress><br></p>                            
-                        Préparation et installation du matériel : On apprend à configurer et installer le matériel nécessaire à un poste client, comme l'ordinateur, les périphériques (écran, clavier, souris), et les connexions réseau (câble Ethernet ou Wi-Fi).<br>
-                        Installation du système d’exploitation et des pilotes : On acquiert la compétence pour installer un système d’exploitation (Windows, Linux) sur le poste client .<br>
-                        <img src="image/sark.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        Configuration du réseau et des services : On apprend à configurer la connexion réseau du poste client, que ce soit par câble Ethernet ou via Wi-Fi, en attribuant une adresse IP statique ou dynamique. On configure également les services nécessaires, comme l’accès au réseau local.<br>
-                        <img src="image/ping.jpg"  alt="" class="mx-auto d-block" width="200" height="200">
-                        <p><strong>Au debut c'etais difficil mais avec l'aide des tutos , des documents et de l'IA j'ai un peu reussi a redresser la barre </strong></p>                          
-                    </div>
-                </div>
-            </div>                           
-        </section>     
-    </section>
-
-    <section class="cc-ma merriweather py-5">      
-            <div class="text-center mb-4">
-                <button class="btn-custom" onclick="window.location.href='#rt1-section'">
-                    <h5 class="card-title">RT2 - Connecter les entreprises et les usagers</h5>
-                </button>
-            </div>           
-        <section id="rt1-section">            
-            <div class="col d-sm-none d-md-block">
-                <div class="card">
-                    <div class="card-body"> 
-                        <p>AC12.01 Mesurer et analyser les signaux </br>
-                        Mon niveau<br>
-                        <progress value="75" max="100" style="width: 50%; height: 30px;"></progress><br></p>
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
 
 
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Analyse Reflexive</p>
+        </button>
+    </div>
+</div>
 
-                         
-                        <p>AC12.02 Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement  </br>                   
-                        Mon niveau<br>
-                        <progress value="75" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-
-
-                        
-                        <p>AC12.03 Déployer des supports de transmission</br>
-                        Mon niveau<br>
-                        <progress value="50" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-
-
-                        
-                        <p>AC12.04 Connecter les systèmes de ToIP </br>
-                        Mon niveau<br>
-                        <progress value="50" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-
-
-                        <p>AC12.05 Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur    </br> 
-                        Mon niveau<br>
-                        <progress value="25" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-
-
-                        <p><strong>Au debut c'etais difficil mais avec l'aide des tutos , des documents et de l'IA j'ai un peu reussi a redresser la barre </strong></p>                          
-                    </div>
-                </div>
-            </div>                           
-        </section>     
-    </section>
-
-
-<section class="cc-ma merriweather py-5">      
-            <div class="text-center mb-4">
-                <button class="btn-custom" onclick="window.location.href='#rt1-section'">
-                    <h5 class="card-title">RT3 - Créer des outils et des applications informatiques pour les R&T</h5>
-                </button>
-            </div>           
-        <section id="rt1-section">            
-            <div class="col d-sm-none d-md-block">
-                <div class="card">
-                    <div class="card-body"> 
-                        <p>AC13.01 Utiliser un système informatique et ses outils</br>
-                        Mon niveau<br>
-                        <progress value="35" max="100" style="width: 50%; height: 30px;"></progress><br></p>
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+</div> </br>
 
 
-                        <p>AC13.02 Lire, exécuter, corriger et modifier un programme </br>
-                        Mon niveau<br>
-                        <progress value="70" max="100" style="width: 50%; height: 30px;"></progress><br></p>
+         <p>AC12.03 Déployer des supports de transmission</br>
+     <p><strong>R1.05 et R1.03</strong></p>
+        <progress id="myProgress" value="75" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
 
 
-                        <p>AC13.03 Traduire un algorithme, dans un langage et pour un environnement donné </br>
-                        Mon niveau<br>
-                        <progress value="50" max="100" style="width: 50%; height: 30px;"></progress><br></p>
+        <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
 
 
-                        <p>AC13.04 Connaître l’architecture et les technologies d’un site Web </br>
-                        Mon niveau<br>
-                        <progress value="35" max="100" style="width: 50%; height: 30px;"></progress><br></p>
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Preuves</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
 
 
-                        <p>AC13.05 Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix </br>
-                        Mon niveau<br>
-                        <progress value="90" max="100" style="width: 50%; height: 30px;"></progress><br></p>
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Analyse Reflexive</p>
+        </button>
+    </div>
+</div>
 
-
-                        <p>AC13.06 S’intégrer dans un environnement propice au développement et au travail collaboratif</br>
-                        Mon niveau<br>
-                        <progress value="75" max="100" style="width: 50%; height: 30px;"></progress><br></p>
-
-                        <p><strong>Au debut c'etais difficil mais avec l'aide des tutos , des documents et de l'IA j'ai un peu reussi a redresser la barre </strong></p>                          
-                    </div>
-                </div>
-            </div>                           
-        </section>     
-    </section>
-
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+</div> </br>
 
     
-        
 
-           
-            
-                   
-                    
+</div> </br>
 
-           
-    <footer>
-        Copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 Oumar.sow site privé
-    </footer>
-</body>
+
+
+
+
+
+
+
+<div align="center">
+ <div class="text-center mb-4">
+  <button class="btn-custom" onclick="window.location.href='#rt1-section'">
+ <h4 class="card-title">RT3 - Créer des outils et des applications informatiques pour les R&T</h4>
+</button>
+</div>
+
+       <p>AC13.02 Lire, exécuter, corriger et modifier un programme </br>
+     <p><strong>R1.07 et R2.08</strong></p>
+        <progress id="myProgress" value="75" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
+
+        <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Preuves</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/15YkJ-eq6HBNbhKWIy8BB20aLQEkg7VFqTmI7DwkNyVQ/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Analyse Reflexive</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1Tan8yQAIsEHqDAklcGDPS61E4ZEXZ2D9h40OSrOtqhQ/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+</div> </br>
+
+
+         <p>AC13.04 Connaître l’architecture et les technologies d’un site Web </br>
+     <p><strong>R1.09,SEA1.04,SEA2.04 et SAE1.05</strong></p>
+        <progress id="myProgress" value="89" max="100"></progress>
+        <script>
+        var progress = document.getElementById('myProgress');
+        progress.style.width = '200px';  // Cambiar el ancho
+        progress.style.height = '50px';  // Cambiar la altura
+        </script>
+
+        <div style="display: flex; align-items: center; gap: 20px;">
+    <!-- Section à gauche : barre de progression -->
+    <div style="flex-shrink: 0;">
+    </div>
+    <!-- Section à droite : document Google Docs -->
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1dC6-WjsP5a-_rEsmlgyYO1TMDzkNxnnHI1tiSlfEvU0/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Preuves</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1dC6-WjsP5a-_rEsmlgyYO1TMDzkNxnnHI1tiSlfEvU0/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+</script>
+
+
+   <div class="documents-container" style="flex-grow: 1;">
+    <div class="petite-fenetre" id="docContainer">
+        <iframe 
+            id="docIframe"
+            src="https://docs.google.com/document/d/1PHdQTAE3WWrz9Jn8d42NRbt3qjgW1DqD086UEodCX_s/preview" 
+            width="100%" 
+            height="600px" 
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+        <br>
+        <button id="btnApercu" class="bouton-apercu" onclick="afficherEnPleinEcran()">
+            <p>Analyse Reflexive</p>
+        </button>
+    </div>
+</div>
+
+<script>
+    function afficherEnPleinEcran() {
+        // Cibler le corps du document pour le remplacer
+        document.body.innerHTML = `
+            <iframe 
+                src="https://docs.google.com/document/d/1dC6-WjsP5a-_rEsmlgyYO1TMDzkNxnnHI1tiSlfEvU0/preview" 
+                style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;" 
+                allowfullscreen>
+            </iframe>
+        `;
+    }
+    </script>
+</div> </br>
+
+</div> </br>
+
+
+
+
+ 
+
+
 {% endblock %}

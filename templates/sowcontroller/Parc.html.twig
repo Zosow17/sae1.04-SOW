@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon CV - Oumar Sow{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f9f9f9;
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #273c75;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    section {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #e67e22;
+        margin-top: 30px;
+    }
+
+    ul {
+        line-height: 1.6;
+    }
+
+    footer {
+        background-color: #273c75;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+    }
+
+    /* Modification pour les images carrées */
+    .profile-img-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Espacement entre les images */
+        margin-top: 20px;
+    }
+
+    .profile-img {
+        width: 150px; /* Largeur de l'image carrée */
+        height: 150px; /* Hauteur de l'image carrée */
+        object-fit: cover; /* Garde l'image proportionnelle sans la déformer */
+        border-radius: 10px; /* Bordure arrondie de l'image */
+        border: 3px solid #273c75; /* Bordure autour de l'image */
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<header>
+    <h1>Mon choix du parcours ROM</h1>
+    <p>Réseaux Opérateurs et Multimédia - BUT Réseaux & Télécoms</p>
+</header>
+
+<section>
+    <h2>Introduction</h2>
+    <p>
+        Dans le cadre de ma formation en BUT Réseaux et Télécommunications, j’ai choisi de m’orienter vers le parcours
+        <strong>ROM (Réseaux Opérateurs et Multimédia)</strong>. Ce choix est le fruit d’une réflexion approfondie basée sur mes centres d’intérêt, mes compétences acquises en première année, et mes aspirations professionnelles.
+    </p>
+
+    <h2>Pourquoi ce parcours ROM ?</h2>
+    <p>
+        Le parcours ROM correspond parfaitement à mes attentes car il se concentre sur les réseaux d’opérateurs, la téléphonie sur IP, la fibre optique, les services multimédias et la virtualisation de services. Ces domaines sont aujourd’hui au cœur des infrastructures numériques et offrent de nombreux débouchés professionnels.
+    </p>
+    <p>
+        Je suis motivé à approfondir mes connaissances en administration de réseaux, en routage, en ToIP et en supervision réseau, car je souhaite à terme travailler dans l’univers des télécoms ou des infrastructures réseau complexes.
+    </p>
+
+    <h2>Mes compétences en lien avec le parcours</h2>
+    <ul>
+        <li><strong>Configuration de réseaux locaux (VLAN, DHCP, DNS, Routage)</strong> – Compétences acquises dans les R202, R204, et SAÉs.</li>
+        <div class="profile-img-container">
+            <img src="{{ asset('image/dns.jpg') }}" alt="Deuxième photo" class="profile-img">
+        </div>
+        <li><strong>Maîtrise des systèmes d’exploitation</strong> –  installer, configurer et administrer un OS pour des services réseaux (Linux, Windows Server).</li>
+         <div class="profile-img-container">
+            <img src="{{ asset('image/vm.jpg') }}" alt="Deuxième photo" class="profile-img">
+        </div>
+        <li><strong>Virtualisation de services</strong> – Bases acquises sur Docker et machines virtuelles avec VirtualBox.</li>
+         <div class="profile-img-container">
+            <img src="{{ asset('image/vb2.jpg') }}" alt="Deuxième photo" class="profile-img">
+        </div>
+        <li><strong>Découverte de la ToIP</strong> – Premiers TDs autour de la téléphonie IP avec Asterisk.</li>
+         <div class="profile-img-container">
+            <img src="{{ asset('image/wat.jpg') }}" alt="Deuxième photo" class="profile-img">
+        </div>
+        <li><strong>Déploiement de câblage réseau</strong> – Pratique sur le terrain en TP (fibre optique, RJ45, baies de brassage).</li>
+         <div class="profile-img-container">
+            <img src="{{ asset('image/cab1.jpg') }}" alt="Deuxième photo" class="profile-img">
+        </div>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        Mon choix du parcours ROM est donc en parfaite cohérence avec mon profil technique, mes intérêts personnels, et mes projets professionnels. Je suis convaincu que cette spécialisation me permettra d’acquérir des compétences solides et recherchées dans le monde des réseaux et des télécommunications.
+    </p>
+</section>
+
+<footer>
+    © 2025 - Oumar Sow - BUT Réseaux & Télécoms
+</footer>
+
+{% endblock %}

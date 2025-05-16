@@ -1,148 +1,87 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}osow page!{% endblock %}
+{% block title %}Mon CV - Oumar Sow{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('cv.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        .cv-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .embed-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        embed {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            text-align: center;
+            font-size: 1em;
+            margin-top: 50px;
+            color: #7f8c8d;
+        }
+        footer .glyphicon {
+            margin-left: 5px;
+            color: #3498db;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-<body>
-
     <div class="cv-container">
-        
-        <div class="left-column">
-            
-            <div class="profile-picture">
-                <img src="image/profil.jpg" alt="Photo de profil">
-            </div>
+        <h1>Mon CV</h1>
 
-            
-            <section class="section">
-                <h2>Contact</h2>
-                <ul>
-                    <li><strong>Adresse:</strong> 4 Impasse Champromis, 42300 France, France</li>
-                    <li><strong>Email:</strong> <a href="mailto:aaxxx35@gmail.com">aaxxx@gmail.com</a></li>
-                    <li><strong>Téléphone:</strong> <a href="tel:+ 33 7 53 67 67 xx">+ 33 7 53 67 67 xx</a></li>
-                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oumarxxxx" target="_blank">linkedin.com/in/oumarxxxx</a></li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/oumarxxxx" target="_blank">github.com/oumarxxxx</a></li>
-                </ul>
-            </section>
-
-            
-            <section class="section">
-                <h2>Langues</h2>
-                <ul>
-                    <li>Français: Courant</li>
-                    <li>Anglais: Intermédiaire</li>
-                    <li>wolof : courant</li>
-                    <li>peulh: Langue maternelle</li>
-                </ul>
-            </section>
-
-            
-            <section class="section">
-                <h2>Centres d'intérêt</h2>
-                <ul>
-                    <li>Technologies émergentes</li>
-                    <li>Voyages et découvertes culturelles</li>
-                    <li>Sport(Football, Basketball),manga,jeu video (fifa,pes)</li>
-                </ul>
-            </section>
+        <!-- Intégration du PDF dans la page -->
+        <div class="embed-container">
+            <embed src="{{ asset('cv.pdf') }}" width="100%" height="600px" />
         </div>
 
-        
-        <div class="right-column">
-            
-            <header>
-                <h1>Oumar Sow</h1>
-                <p>Étudiant en Réseaux et Télécommunications</p>
-            </header>
-
-            
-            <section class="section">
-                <h2>DESCRIPTION</h2>
-                <div class="article">
-                   <p>Étudiant passionné et motivé, je suis à la recherche de nouvelles expériences professionnelles enrichissantes. Flexible et désireux d'apprendre, je suis prêt à m'impliquer pleinement dans les tâches qui me seront confiées. Mon objectif est de développer mes compétences tout en contribuant positivement à votre équipe.</p>
-                </div>
-            </section>
-             <section class="section">
-             <h2>EXPERIENCES PROFESSIONNELLES</h2>
-                <div class="article">
-                   <strong> AUCHAN GUEDIAWAYE AMMO 6 (Sénégal) JUIN 2021- SEPT2021</strong>
-                        <p>Equipier polyvalent : Caissier, Agent de nettoyage, Boulangerie</p>
-                    <strong>EDK Saint Louis (Sénégal) JUIN 2023 - SEPT 2023</strong>
-                        <p> Equipier polyvalent : hôte de caisse</p>      
-                    <strong> Bénévole au Sénégal </strong>
-                        <p>Participation à des projets locaux pour améliorer les conditions de vie des communautés.</p>
-                    <strong> Événements et manifestations </strong>
-                        <p> Participant à la journée portes ouvertes - IUT de Roanne,
-                            présentation des formations et réponse aux questions des futurs étudiants.</p>
-                </div>
-             </section>
-
-    
-            <section class="section">
-                <h2>Formation</h2>
-                <div class="article">
-                    <h4>BUT Réseaux et Télécommunications (en cours)</h4>
-                    <strong>Établissement:</strong> IUT de Roanne<br>
-                    <strong>Durée:</strong> 2024 - 2027<br>
-                </div>
-                <div class="article">
-                    <h4>Baccalauréat Scientifique</h4>
-                    <strong>Établissement:</strong> Lycée Méry, Sénégal<br>
-                    <strong>Durée:</strong> 2021 - 2024<br>
-                </div>
-            </section>
-             <section class="section">
-                <h2>Compétences</h2>
-                
-                    Administration des réseaux (TCP/IP, DNS, DHCP)<br>
-                    Configuration de commutateurs<br>
-                    Langages de programmation: Python, C, HTML et CSS<br>
-                    Systèmes d'exploitation: Linux, Windows<br>
-                    Compétences en mathématiques, physique-chimie et électricité<br>
-                    Attestation MOOC : Sensibilisation à la cybersécurité<br>
-                      
-                
-            </section>
+        <div style="text-align: center;">
+            <!-- Bouton pour télécharger le CV en PDF -->
+            <a href="{{ asset('cv.pdf') }}" download="Mon_CV.pdf" class="download-btn">
+                Télécharger le CV en PDF
+            </a>
         </div>
     </div>
-
     
-    <div style="text-align: center; margin: 20px;">
-        <button onclick="downloadPDF()" class="btn btn-primary">Télécharger le CV en PDF</button>
-    </div>
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script>
-        
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('p', 'mm', 'a4'); 
-
-            
-            const content = document.querySelector(".cv-container");
-
-            
-            html2canvas(content, { scale: 2 }).then((canvas) => {
-                const imgData = canvas.toDataURL('image/png'); 
-                const imgWidth = 210; 
-                const imgHeight = (canvas.height * imgWidth) / canvas.width; 
-
-                
-                doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-
-            
-                doc.save("cv-oumarsow.pdf");
-            });
-        }
-    </script>
-     <footer>
-        Copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 Oumar.sow site privé
+    <footer>
+        Copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 Oumar.sow - Site privé
     </footer>
-</body>
-{% endblock %} 
+{% endblock %}

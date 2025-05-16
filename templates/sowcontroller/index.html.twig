@@ -1,72 +1,177 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}osow page!{% endblock %}
+{% block title %}Oumar Sow - Personal Page{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        .page-container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Colonne gauche - Profil */
+        .profile-column {
+            width: 60%;
+            padding: 80px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrer les éléments dans la colonne */
+            background-color: #222;
+            color: #fff;
+            text-align: center; /* Centrer le texte */
+        }
+
+        .profile-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ecf4f4;
+            font-weight: bold; /* Ajouter un peu de caractère au titre */
+        }
+
+        .profile-img {
+            width: 250px;  /* Agrandir la taille de l'image */
+            height: 320px;  /* Fixer une hauteur appropriée */
+            object-fit: cover;  /* Remplir le cadre sans déformer l'image */
+            border: 5px solid #fff;
+            border-radius: 15px; /* Coins arrondis */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajouter un effet de transition */
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05); /* Agrandir légèrement l'image au survol */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Accentuer l'ombre au survol */
+        }
+
+        .profile-description {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            max-width: 500px;
+            margin-top: 50px; /* Espacement entre l'image et le texte */
+        }
+
+        /* Colonne droite - Quick Info */
+        .info-column {
+            width: 40%;
+            background-color: #fff;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            box-sizing: border-box;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            align-items: center; /* Centrer les boutons d'action */
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #625e5d;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 150px;
+            height: 150px;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 10px; /* Ajouter des coins arrondis */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            background-color: #f0f0f0;
+        }
+
+        .button-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .button-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
+    <div class="page-container">
+        <!-- Colonne gauche - Profil -->
+        <div class="profile-column">
+            <h1 class="profile-title">Oumar Sow</h1>
 
-    <div style="display: flex; flex-direction: column; min-height: 100vh;">
-   
-        <div style="text-align: center; margin: 20px; position: relative;">
-            
-            <div style="position: absolute; top: 0; bottom: 0; left: 20%; width: 2px; background-color: rgb(107, 101, 107);"></div>
+            <img src="{{ asset('image/oumar.jpg') }}" alt="Photo de profil" class="profile-img">
 
-            
-            <div>
-                
-                <img src="{{ asset('image/profil.jpg') }}" alt="Photo de profil" 
-                     style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid rgb(51, 45, 43);">
-                
-                <h2 style="margin-top: 20px;">Oumar Sow</h2>
-                <p style="font-size: 16px; color: #555555;">
-                    I am a student in Networks and Telecommunications at Roanne. Passionate about technical challenges and teamwork.
-                </p>
+            <p class="profile-description">
+               <p> Étudiant en Réseaux et Télécommunications à Roanne, je suis passionné par les défis techniques et le travail d'équipe.</p>
+               <p> Mon parcours m'a permis de développer des compétences solides en administration réseau et en programmation.</p>
+               <p> Je recherche actuellement une opportunité pour mettre en pratique mes connaissances.</p>
+            </p>
+        </div>
+
+        <!-- Colonne droite - Quick Info -->
+        <div class="info-column">
+            <div class="action-buttons">
+                <a href="/Decouvrir" class="action-button">
+                    <img src="{{ asset('image/about.jpg') }}" alt="A propos de moi" class="button-icon">
+                    <span class="button-text">A propos de moi</span>
+                </a>
+                <a href="/Eportfolio" class="action-button">
+                    <img src="{{ asset('image/port.jpg') }}" alt="Eportfolio" class="button-icon">
+                    <span class="button-text">Portfolio</span>
+                </a>
+                <a href="/Parc" class="action-button">
+                    <img src="{{ asset('image/Parcours.jpg') }}" alt="Mon Parcours" class="button-icon">
+                    <span class="button-text">Mon Parcours</span>
+                </a>
+                <a href="/Formulaire" class="action-button">
+                    <img src="{{ asset('IMAGE/CV.jpg') }}" alt="CV" class="button-icon">
+                    <span class="button-text">My CV</span>
+                </a>
             </div>
-
-            
-            <div style="position: absolute; top: 0; bottom: 0; right: 20%; width: 2px; background-color: rgb(139, 133, 131);"></div>
         </div>
-
-
-        <div style="text-align: center; margin-top: 100px; position: relative; flex: 1;">
-
-            <div style="position: absolute; top: 0; bottom: 0; left: 20%; width: 2px; background-color: rgb(126, 122, 120);"></div>
-
-            
-            <div style="display: flex; justify-content: center; gap: 40px;">
-
-                <div style="text-align: center;">
-                    <a href="/Decouvrir" style="text-decoration: none; color: #333333;">
-                        <img src="{{ asset('image/about.jpg') }}" alt="Découvrir" 
-                             style="width: 100px; height: 100px; border: 2px solid rgb(98, 94, 93); border-radius: 10px;">
-                        <h3>About me</h3>
-                    </a>
-                </div>
-
-        
-                <div style="text-align: center;">
-                    <a href="/Eportfolio" style="text-decoration: none; color: #333333;">
-                        <img src="{{ asset('image/port.jpg') }}" alt="Eportfolio" 
-                             style="width: 100px; height: 100px; border: 2px solid rgb(97, 91, 89); border-radius: 10px;">
-                        <h3>My Eportfolio</h3>
-                    </a>
-                </div>
-
-            
-                <div style="text-align: center;">
-                    <a href="/Formulaire" style="text-decoration: none; color: #333333;">
-                        <img src="{{ asset('IMAGE/CV.jpg') }}" alt="CV" 
-                             style="width: 100px; height: 100px; border: 2px solid rgb(98, 93, 91); border-radius: 10px;">
-                        <h3>My CV</h3>
-                    </a>
-                </div>
-            </div>
-
-        
-            <div style="position: absolute; top: 0; bottom: 0; right: 20%; width: 2px; background-color: rgb(113, 108, 106);"></div>
-        </div>
-        </div>
-        <footer style="text-align: center; padding: 10px; background-color: #333333; color: #ffffff; margin-top: auto;">
-            &copy; 2025 Oumar.sow - Site privé
-        </footer>
     </div>
 {% endblock %}

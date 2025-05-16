@@ -1,130 +1,238 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}osow page!{% endblock %}
+{% block title %}Loisirs & Passions - Oumar Sow{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('decou.css') }}"> <!-- Link to the CSS file for the gallery -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body.img {
+            background: linear-gradient(to right, #fdfbfb, #ebedee);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            padding-top: 80px;
+        }
+
+        .cc-navbar {
+            background: rgba(44, 62, 80, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ecf0f1 !important;
+        }
+
+        .banner {
+            min-height: 100vh;
+            padding-top: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .banner-desc {
+            font-size: 1.05rem;
+            color: #34495e;
+            background: #ffffffec;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .img-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 6px 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #000;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close:hover {
+            color: #f1c40f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 50px;
+            border-top: 3px solid #34495e;
+        }
+
+        @media screen and (max-width: 768px) {
+            .banner-desc {
+                font-size: 1rem;
+                padding: 20px;
+            }
+
+            .gallery-image {
+                height: 130px;
+            }
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-    <body class="img">
-    
-        <nav class="cc-navbar navbar navbar-expand-lg navbar-dark position-fixed w-100">
-            <div class="container-fluid">
-                <a class="navbar-brand text-uppercase mx-4 py-3 fw-bolder">Oumar Sow</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
+<body class="img">
+    <nav class="cc-navbar navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#">Oumar Sow</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
 
-        
-        <section class="banner d-flex justify-content-center align-items-center pt-5">
-            <div class="container my-5 py-5">
-                <div class="row">
-                
-                    <div class="col-md-6 banner-desc lh-lg">
-                        <p class="text-capitalize py-3 redressed">
-                            <i>
-                               Activities and hobbies<br>
-                               <strong>
-                                In my free time, I engage in several activities that allow me to relax, have fun, and maintain balance. First of all, I love playing basketball with my friends. This sport is an excellent way for me to unwind, stay active, and strengthen friendships.
+    <section class="banner">
+        <div class="container my-5 py-5">
+            <div class="row">
+                <div class="col-md-6 banner-desc">
+                    <p>
+                        <strong>Loisirs et Passions :</strong><br><br>
+                        Pendant mon temps libre, je pratique plusieurs activités qui me permettent de me détendre, de m’amuser et de garder un bon équilibre de vie. 
+                        <br><br>
+                        J’adore jouer au basket avec mes amis. C’est une excellente manière de relâcher la pression, rester actif, et renforcer mes liens. 
+                        <br><br>
+                        Je suis passionné de football, j’aime regarder les matchs, suivre les compétitions internationales et analyser les stratégies.
+                        <br><br>
+                        Les mangas me permettent de m’évader dans des mondes imaginaires et de stimuler ma créativité.
+                        <br><br>
+                        La musique est une source constante de motivation et de relaxation dans mon quotidien.
+                        <br><br>
+                        Je joue aussi à des jeux vidéo, notamment FIFA et PES, pour me divertir et relever des défis virtuels.
+                        <br><br>
+                        J’aime passer du temps avec ma famille et mes amis, discuter, échanger, partager. Et quand j’ai besoin de m’aérer, je sors marcher en ville pour découvrir de nouveaux endroits.
+                    </p>
+                </div>
 
-                                Outside of sports, I really enjoy watching football matches, a way for me to follow international competitions and analyze team strategies. Manga is also one of my passions, as it allows me to escape into different worlds while stimulating my imagination.
-
-                                Music also plays an important role in my daily life. It serves as both a source of relaxation and motivation, whether to unwind after a busy day or to boost my energy. Additionally, video games, especially FIFA and PES, are among my favorite pastimes. They offer me opportunities to take on challenges, test my reflexes, and immerse myself in virtual competitions.
-
-                                Finally, I enjoy spending time chatting with my family and friends. These moments of sharing are essential for me and help me stay connected with those who matter. When I want a change of scenery, I don't hesitate to go out for a walk in the city, enjoy the urban environment, and discover new places.
-
-                                These various activities enrich my daily life and help me maintain a good balance between relaxation, leisure, and personal well-being.
-                                </strong>
-                            </i>
-                        </p>
-                    </div>
-
-                    
-                    <div class="col-md-6">
-                        <div class="img-gallery">
-                            <div class="image-container loisir-container">
-                                <p class="image-description">Leisure</p>
-                                <img src="{{ asset('IMAGE/loi.jpg') }}" alt="Leisure" class="gallery-image loisir-image" onclick="openModal('{{ asset('IMAGE/loi.jpg') }}')">
-                            </div>
+                <div class="col-md-6">
+                    <div class="img-gallery">
+                        {% for image, title in {
+                            'loi.jpg': 'Loisir',
+                            'liv.jpg': 'Lecture',
+                            'musi.jpg': 'Musique',
+                            'bask.jpg': 'Basket',
+                            'bas3.jpg': 'Basket 2',
+                            'manga.jpg': 'Manga',
+                            'foot.jpg': 'Football',
+                            'prom.jpg': 'Balade',
+                            'mus.jpg': 'Entraînement',
+                            'app.jpg': 'Téléphone'
+                        } %}
                             <div class="image-container">
-                                <p class="image-description">Book</p>
-                                <img src="{{ asset('IMAGE/liv.jpg') }}" alt="Book" class="gallery-image" onclick="openModal('{{ asset('IMAGE/liv.jpg') }}')">
+                                <p class="image-description">{{ title }}</p>
+                                <img src="{{ asset('IMAGE/' ~ image) }}" alt="{{ title }}" class="gallery-image" onclick="openModal('{{ asset('IMAGE/' ~ image) }}')">
                             </div>
-                            <div class="image-container">
-                                <p class="image-description">Music</p>
-                                <img src="{{ asset('IMAGE/musi.jpg') }}" alt="Music" class="gallery-image" onclick="openModal('{{ asset('IMAGE/musi.jpg') }}')">
-                            </div>
-                            <div class="image-container">
-                                <p class="image-description">Basketball</p>
-                                <img src="{{ asset('IMAGE/bask.jpg') }}" alt="Basketball" class="gallery-image" onclick="openModal('{{ asset('IMAGE/bask.jpg') }}')">
-                            </div>
-                             <div class="image-container">
-                                <p class="image-description">Basketball</p>
-                                <img src="{{ asset('IMAGE/bas3.jpg') }}" alt="Basketball 1" class="gallery-image" onclick="openModal('{{ asset('IMAGE/bas3.jpg') }}')">
-                            </div>
-                            <div class="image-container">
-                                <p class="image-description">Manga</p>
-                                <img src="{{ asset('IMAGE/manga.jpg') }}" alt="Manga" class="gallery-image" onclick="openModal('{{ asset('IMAGE/manga.jpg') }}')">
-                            </div>
-                            <div class="image-container">
-                                <p class="image-description">Football</p>
-                                <img src="{{ asset('IMAGE/foot.jpg') }}" alt="Football" class="gallery-image" onclick="openModal('{{ asset('IMAGE/foot.jpg') }}')">
-                            </div>
-                            <div class="image-container">
-                                <p class="image-description">Walk</p>
-                                <img src="{{ asset('IMAGE/prom.jpg') }}" alt="Walk" class="gallery-image" onclick="openModal('{{ asset('IMAGE/prom.jpg') }}')">
-                            </div>
-                            <div class="image-container">
-                                <p class="image-description">Workout</p>
-                                <img src="{{ asset('IMAGE/mus.jpg') }}" alt="Music 2" class="gallery-image" onclick="openModal('{{ asset('IMAGE/mus.jpg') }}')">
-                            </div>
-                            <div class="image-container">
-                                <p class="image-description">Phone</p>
-                                <img src="{{ asset('IMAGE/app.jpg') }}" alt="Music 2" class="gallery-image" onclick="openModal('{{ asset('IMAGE/mus.jpg') }}')">
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </section>
-
-        
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="img01">
         </div>
+    </section>
 
-    
-        <footer>
-            Copyright <span class="glyphicon glyphicon-nom-image"></span> 2025 oumar.sow@etu.univ-st-etienne.fr
-        </footer>
+    <!-- Modal d'image -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
 
+    <footer>
+        © 2025 - oumar.sow@etu.univ-st-etienne.fr
+    </footer>
 
-        <script>
-        
-            function openModal(imageSrc) {
-                const modal = document.getElementById("myModal");
-                const modalImg = document.getElementById("img01");
-                modal.style.display = "block";
-                modalImg.src = imageSrc;
-            }
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
 
-        
-            function closeModal() {
-                const modal = document.getElementById("myModal");
-                modal.style.display = "none";
-            }
-        </script>
-    </body>
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+</body>
 {% endblock %}
